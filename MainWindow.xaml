@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="824" Width="956">
+    <Grid x:Name="MainWin">
+        <Menu HorizontalAlignment="Stretch" Height="30"  VerticalAlignment="Top" Padding="5">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="FILE"></MenuItem>
+            <MenuItem Header="HELP"></MenuItem>
+            <MenuItem Header="ABOUT"></MenuItem>
+        </Menu>
+        <Grid Name="GroupsGrid" Margin="0,35,750,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView Name="FeedsTree" Margin="0,145,0,191" SelectedItemChanged="tvSelectedItemChanged" Grid.ColumnSpan="2">
+            </TreeView>
+            <Button x:Name="FeedsButton" Content="Feeds" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.512,-0.61" Height="27" Click="Button_Click" Width="83"/>
+            <Button x:Name="CollectionButton" Content="Collection" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="Button_Click_1"/>
+            <Button Content="Filter" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Height="26" Width="83" Click="Button_Click_2"/>
+            <Button Content="Add CNN Feed (temp)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click_4" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Menu Height="27"  VerticalAlignment="Bottom" Padding="5" Margin="236,0,39,751">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="TITLE"></MenuItem>
+            <MenuItem Header="DATE" HorizontalAlignment="Right"></MenuItem>
+        </Menu>
+        <ListBox HorizontalAlignment="Left" Height="291" Margin="236,62,0,0" VerticalAlignment="Top" Width="681" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+    </Grid>
+
+</Window>
