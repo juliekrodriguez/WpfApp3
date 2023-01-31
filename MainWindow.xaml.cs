@@ -42,5 +42,34 @@ namespace WpfApp3
             Item.Items.Add(newChild);
 
         }
+
+        //feeds button
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(FeedsTree.SelectedItem != null)
+            {
+                //stuff
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // 1 child, 1 parent example
+            string userIn = Microsoft.VisualBasic.Interaction.InputBox("nickname/name of parent item", "Collections", "Default Text");
+            TreeViewItem parent = new TreeViewItem();
+            parent.Header = userIn;
+            FeedsTree.Items.Add(parent);
+
+            string userChild = Microsoft.VisualBasic.Interaction.InputBox("nickname/name of child item", "Collections", "Default Text");
+            TreeViewItem child = new TreeViewItem();
+            child.Header = userChild;
+            parent.Items.Add(child);
+
+        }
     }
 }
