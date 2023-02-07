@@ -28,6 +28,7 @@
             <Button x:Name="CollectionButton" Content="Collection" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="Button_Click_1"/>
             <Button Content="Filter" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Height="26" Width="83" Click="Button_Click_2"/>
             <Button Content="Add CNN Feed (temp)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click_4" Grid.ColumnSpan="2"/>
+            <Button Content="Save" HorizontalAlignment="Left" Height="20" Margin="10,27,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1" Click="Button_Click_3"/>
         </Grid>
         <Menu Height="27"  VerticalAlignment="Bottom" Padding="5" Margin="236,0,39,751">
             <Menu.ItemsPanel>
