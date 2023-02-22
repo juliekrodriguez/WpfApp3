@@ -3,44 +3,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
+        
         Title="MainWindow" Height="824" Width="956">
-    <Grid x:Name="MainWin">
-        <Menu HorizontalAlignment="Stretch" Height="30"  VerticalAlignment="Top" Padding="5">
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
-            <MenuItem Header="FILE"></MenuItem>
-            <MenuItem Header="HELP"></MenuItem>
-            <MenuItem Header="ABOUT"></MenuItem>
-        </Menu>
-        <Grid Name="GroupsGrid" Margin="0,35,750,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="101*"/>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
-            <TreeView Name="FeedsTree" Margin="0,145,0,191" Grid.ColumnSpan="2">
-            </TreeView>
-            <Button x:Name="FeedsButton" Content="Feeds" HorizontalAlignment="Center" RenderTransformOrigin="0.512,-0.61" Click="Button_Click" Width="83" Margin="0,0,0,746" Height="27" VerticalAlignment="Bottom"/>
-            <Button x:Name="CollectionButton" Content="Collection" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="Button_Click_1"/>
-            <Button Content="Filter" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" Height="26" Width="83" Click="Button_Click_2"/>
-            <Button Content="Add CNN Feed (temp)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click_4" Grid.ColumnSpan="2"/>
-            <Button Content="Save" HorizontalAlignment="Left" Height="20" Margin="10,27,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1" Click="Button_Click_3"/>
-        </Grid>
-        <Menu Height="27"  VerticalAlignment="Bottom" Padding="5" Margin="236,0,39,751">
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
-            <MenuItem Header="TITLE"></MenuItem>
-            <MenuItem Header="DATE" HorizontalAlignment="Right"></MenuItem>
-        </Menu>
-        <ListBox HorizontalAlignment="Left" Height="291" Margin="236,62,0,0" VerticalAlignment="Top" Width="681" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+    <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TabItem Header="Main" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+            <Grid Name="grid1" Loaded="onLoad">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="430*"/>
+                    <ColumnDefinition Width="419*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Name="GroupsGrid" Margin="0,0,325,0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="42*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="51*"/>
+                    </Grid.ColumnDefinitions>
+                    <TreeView Name="FeedsTree" Margin="0,145,0,191" Grid.ColumnSpan="3"></TreeView>
+                    <Button x:Name="FeedsButton" Content="Feeds" HorizontalAlignment="Left" RenderTransformOrigin="0.512,-0.61" Click="Button_Click" Width="83" Margin="10,0,0,746" Height="27" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+                    <Button x:Name="CollectionButton" Content="Collection" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="83" Height="28" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+                    <Button Content="Filter" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Height="26" Width="83" Click="Button_Click_2" Grid.ColumnSpan="2"/>
+                    <Button Content="Add CNN Feed (temp)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Height="31" Width="129" Click="Button_Click_4" Grid.ColumnSpan="3"/>
+                    <Button Content="Save" HorizontalAlignment="Left" Height="20" Margin="10,27,0,0" VerticalAlignment="Top" Width="84" Grid.Column="2" Click="Button_Click_3"/>
+                </Grid>
 
-    </Grid>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Map">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="468*"/>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Topics">
+            <Grid Name="gridTopic" Height="263">
+                <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="32,-235,174,318">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+
+        </TabItem>
+    </TabControl>
 
 </Window>
